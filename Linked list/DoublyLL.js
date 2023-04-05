@@ -28,11 +28,16 @@ class DoublyLL {
     this.length++;
   }
   insertAtPosition(value, n) {
-    let prevNode = this.findNode(n-1);
+    if (n > this.length) {
+      this.append(value);
+    } else if (n <= 1) {
+      this.prepend(value);
+    }
+    let prevNode = this.findNode(n - 1);
     let newNode = new Node(value);
     newNode.next = prevNode.next;
     newNode.prev = prevNode;
-    prevNode.next.prev =newNode;
+    prevNode.next.prev = newNode;
     prevNode.next = newNode;
     this.length++;
   }
@@ -49,19 +54,19 @@ class DoublyLL {
     return data;
   }
 
-  print(){
+  print() {
     let data = this.head;
-    while(data){
-        console.log(data);
-        data = data.next;
+    while (data) {
+      console.log(data);
+      data = data.next;
     }
   }
-  update(value,n){
+  update(value, n) {
     let curNode = this.findNode(n);
     curNode.value = value;
   }
-  delete(n){
-    let prevNode = this.findNode(n-1);
+  delete(n) {
+    let prevNode = this.findNode(n - 1);
     prevNode.next = prevNode.next.next;
     prevNode.next.prev = prevNode;
     this.length--;
@@ -70,7 +75,7 @@ class DoublyLL {
 
 let list = new DoublyLL(5);
 list.append(20);
-list.insertAtPosition(10,2);
-list.update(15,2);
+list.insertAtPosition(10, 2);
+list.update(15, 2);
 list.delete(2);
-list
+list;
