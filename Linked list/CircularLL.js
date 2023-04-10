@@ -86,4 +86,3 @@ list.append(20);
 list.insertAtPosition(10,2)
 list.update(15,2)
 list.delete(2)
-list
