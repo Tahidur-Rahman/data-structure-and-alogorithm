@@ -17,3 +17,11 @@ console.log(powerOfTwo(50));
 console.log(powerOfTwo(64));
 
 // BIG O  - O(logn)
+
+function powerOfTwoBitwise(n) {
+  if (n < 1) return false;
+ 
+  return (n & n-1)===0;
+}
+
+///BIG-O = O(1)
